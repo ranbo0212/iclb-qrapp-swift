@@ -7,23 +7,69 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F285195269EEE7600C5FC21 /* RefreshableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F285194269EEE7600C5FC21 /* RefreshableScrollView.swift */; };
 		5F4F302826945344008FFA3D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4F302726945344008FFA3D /* AppDelegate.swift */; };
 		5F4F302A26945344008FFA3D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4F302926945344008FFA3D /* SceneDelegate.swift */; };
-		5F4F302C26945344008FFA3D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4F302B26945344008FFA3D /* ContentView.swift */; };
 		5F4F302E26945353008FFA3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F4F302D26945353008FFA3D /* Assets.xcassets */; };
 		5F4F303126945353008FFA3D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F4F303026945353008FFA3D /* Preview Assets.xcassets */; };
 		5F4F303426945353008FFA3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F4F303226945353008FFA3D /* LaunchScreen.storyboard */; };
+		5F55D19A269D7CB30011B1B6 /* EmailInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F55D199269D7CB30011B1B6 /* EmailInputView.swift */; };
+		5F55D19C269D85A60011B1B6 /* PasswordInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F55D19B269D85A60011B1B6 /* PasswordInputView.swift */; };
+		5FB735F0269C2CD20066F8CD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB735EF269C2CD20066F8CD /* User.swift */; };
+		5FB735F4269C2DDE0066F8CD /* UserDefaultsHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB735F3269C2DDE0066F8CD /* UserDefaultsHelpers.swift */; };
+		5FB735F7269C32130066F8CD /* Sounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB735F6269C32130066F8CD /* Sounds.swift */; };
+		5FB735FB269C32F10066F8CD /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB735FA269C32F10066F8CD /* Event.swift */; };
+		5FB735FE269C34AF0066F8CD /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB735FD269C34AF0066F8CD /* Ticket.swift */; };
+		5FB73601269C34FC0066F8CD /* CountStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB73600269C34FC0066F8CD /* CountStatus.swift */; };
+		5FB73604269C36AC0066F8CD /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB73603269C36AC0066F8CD /* Utilities.swift */; };
+		5FB7360A269C3A090066F8CD /* ticket_ok.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5FB73608269C3A080066F8CD /* ticket_ok.mp3 */; };
+		5FB7360B269C3A090066F8CD /* ticket_ng.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5FB73609269C3A090066F8CD /* ticket_ng.mp3 */; };
+		5FB73613269C3A6B0066F8CD /* QRScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB73612269C3A6B0066F8CD /* QRScannerViewController.swift */; };
+		5FB73617269C3AE00066F8CD /* APIURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB73616269C3AE00066F8CD /* APIURL.swift */; };
+		5FB7361B269C3B060066F8CD /* AuthNetWorkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB7361A269C3B060066F8CD /* AuthNetWorkManager.swift */; };
+		5FB7361E269C3DA20066F8CD /* SelectEventsNetWorkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB7361D269C3DA20066F8CD /* SelectEventsNetWorkManager.swift */; };
+		5FB73621269C3EF30066F8CD /* UpdateQRCodeNetWorkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB73620269C3EF30066F8CD /* UpdateQRCodeNetWorkManager.swift */; };
+		5FB73624269C42950066F8CD /* CountVisitedNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB73623269C42950066F8CD /* CountVisitedNetworkManager.swift */; };
+		5FB73628269C43B10066F8CD /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB73627269C43B10066F8CD /* RootView.swift */; };
+		5FB7362C269C444C0066F8CD /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB7362B269C444C0066F8CD /* TopView.swift */; };
+		5FB7362F269C445F0066F8CD /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB7362E269C445F0066F8CD /* Loader.swift */; };
+		5FB73632269C446D0066F8CD /* NetworkErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB73631269C446D0066F8CD /* NetworkErrorView.swift */; };
+		5FB73635269C447C0066F8CD /* SelectEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB73634269C447C0066F8CD /* SelectEventView.swift */; };
+		5FB7363A269C4BB00066F8CD /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5FB73638269C4BB00066F8CD /* Model.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5F4F302426945344008FFA3D /* QRアプリtest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "QRアプリtest.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F285194269EEE7600C5FC21 /* RefreshableScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshableScrollView.swift; sourceTree = "<group>"; };
+		5F4F302426945344008FFA3D /* QRCodeTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QRCodeTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F4F302726945344008FFA3D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5F4F302926945344008FFA3D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5F4F302B26945344008FFA3D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5F4F302D26945353008FFA3D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5F4F303026945353008FFA3D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5F4F303326945353008FFA3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5F4F303526945353008FFA3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5F55D199269D7CB30011B1B6 /* EmailInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailInputView.swift; sourceTree = "<group>"; };
+		5F55D19B269D85A60011B1B6 /* PasswordInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordInputView.swift; sourceTree = "<group>"; };
+		5FB735EF269C2CD20066F8CD /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		5FB735F3269C2DDE0066F8CD /* UserDefaultsHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelpers.swift; sourceTree = "<group>"; };
+		5FB735F6269C32130066F8CD /* Sounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sounds.swift; sourceTree = "<group>"; };
+		5FB735FA269C32F10066F8CD /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		5FB735FD269C34AF0066F8CD /* Ticket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticket.swift; sourceTree = "<group>"; };
+		5FB73600269C34FC0066F8CD /* CountStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountStatus.swift; sourceTree = "<group>"; };
+		5FB73603269C36AC0066F8CD /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		5FB73608269C3A080066F8CD /* ticket_ok.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ticket_ok.mp3; sourceTree = "<group>"; };
+		5FB73609269C3A090066F8CD /* ticket_ng.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ticket_ng.mp3; sourceTree = "<group>"; };
+		5FB73612269C3A6B0066F8CD /* QRScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerViewController.swift; sourceTree = "<group>"; };
+		5FB73616269C3AE00066F8CD /* APIURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIURL.swift; sourceTree = "<group>"; };
+		5FB7361A269C3B060066F8CD /* AuthNetWorkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthNetWorkManager.swift; sourceTree = "<group>"; };
+		5FB7361D269C3DA20066F8CD /* SelectEventsNetWorkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectEventsNetWorkManager.swift; sourceTree = "<group>"; };
+		5FB73620269C3EF30066F8CD /* UpdateQRCodeNetWorkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateQRCodeNetWorkManager.swift; sourceTree = "<group>"; };
+		5FB73623269C42950066F8CD /* CountVisitedNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountVisitedNetworkManager.swift; sourceTree = "<group>"; };
+		5FB73627269C43B10066F8CD /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		5FB7362B269C444C0066F8CD /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
+		5FB7362E269C445F0066F8CD /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
+		5FB73631269C446D0066F8CD /* NetworkErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorView.swift; sourceTree = "<group>"; };
+		5FB73634269C447C0066F8CD /* SelectEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectEventView.swift; sourceTree = "<group>"; };
+		5FB73639269C4BB00066F8CD /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,7 +94,7 @@
 		5F4F302526945344008FFA3D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5F4F302426945344008FFA3D /* QRアプリtest.app */,
+				5F4F302426945344008FFA3D /* QRCodeTest.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -58,10 +104,16 @@
 			children = (
 				5F4F302726945344008FFA3D /* AppDelegate.swift */,
 				5F4F302926945344008FFA3D /* SceneDelegate.swift */,
-				5F4F302B26945344008FFA3D /* ContentView.swift */,
+				5FB73626269C42ED0066F8CD /* Views */,
+				5FB73615269C3AC60066F8CD /* NetWorkManagers */,
+				5FB73610269C3A490066F8CD /* Contrllers */,
+				5FB73606269C39A50066F8CD /* Sounds */,
+				5FB735F2269C2DB80066F8CD /* Helpers */,
+				5FB735EE269C2CAE0066F8CD /* Models */,
 				5F4F302D26945353008FFA3D /* Assets.xcassets */,
 				5F4F303226945353008FFA3D /* LaunchScreen.storyboard */,
 				5F4F303526945353008FFA3D /* Info.plist */,
+				5FB73638269C4BB00066F8CD /* Model.xcdatamodeld */,
 				5F4F302F26945353008FFA3D /* Preview Content */,
 			);
 			path = "QRアプリtest";
@@ -73,6 +125,79 @@
 				5F4F303026945353008FFA3D /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		5F55D198269D77CC0011B1B6 /* CommonViews */ = {
+			isa = PBXGroup;
+			children = (
+				5FB7362E269C445F0066F8CD /* Loader.swift */,
+				5FB73631269C446D0066F8CD /* NetworkErrorView.swift */,
+			);
+			path = CommonViews;
+			sourceTree = "<group>";
+		};
+		5FB735EE269C2CAE0066F8CD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5FB735EF269C2CD20066F8CD /* User.swift */,
+				5FB735F6269C32130066F8CD /* Sounds.swift */,
+				5FB735FA269C32F10066F8CD /* Event.swift */,
+				5FB735FD269C34AF0066F8CD /* Ticket.swift */,
+				5FB73600269C34FC0066F8CD /* CountStatus.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5FB735F2269C2DB80066F8CD /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				5FB735F3269C2DDE0066F8CD /* UserDefaultsHelpers.swift */,
+				5FB73603269C36AC0066F8CD /* Utilities.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		5FB73606269C39A50066F8CD /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				5FB73609269C3A090066F8CD /* ticket_ng.mp3 */,
+				5FB73608269C3A080066F8CD /* ticket_ok.mp3 */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
+		5FB73610269C3A490066F8CD /* Contrllers */ = {
+			isa = PBXGroup;
+			children = (
+				5FB73612269C3A6B0066F8CD /* QRScannerViewController.swift */,
+			);
+			path = Contrllers;
+			sourceTree = "<group>";
+		};
+		5FB73615269C3AC60066F8CD /* NetWorkManagers */ = {
+			isa = PBXGroup;
+			children = (
+				5FB73616269C3AE00066F8CD /* APIURL.swift */,
+				5FB7361A269C3B060066F8CD /* AuthNetWorkManager.swift */,
+				5FB7361D269C3DA20066F8CD /* SelectEventsNetWorkManager.swift */,
+				5FB73620269C3EF30066F8CD /* UpdateQRCodeNetWorkManager.swift */,
+				5FB73623269C42950066F8CD /* CountVisitedNetworkManager.swift */,
+			);
+			path = NetWorkManagers;
+			sourceTree = "<group>";
+		};
+		5FB73626269C42ED0066F8CD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5F55D198269D77CC0011B1B6 /* CommonViews */,
+				5FB73627269C43B10066F8CD /* RootView.swift */,
+				5FB7362B269C444C0066F8CD /* TopView.swift */,
+				5F55D199269D7CB30011B1B6 /* EmailInputView.swift */,
+				5F55D19B269D85A60011B1B6 /* PasswordInputView.swift */,
+				5FB73634269C447C0066F8CD /* SelectEventView.swift */,
+				5F285194269EEE7600C5FC21 /* RefreshableScrollView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -92,7 +217,7 @@
 			);
 			name = "QRアプリtest";
 			productName = "QRアプリtest";
-			productReference = 5F4F302426945344008FFA3D /* QRアプリtest.app */;
+			productReference = 5F4F302426945344008FFA3D /* QRCodeTest.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -132,6 +257,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5FB7360A269C3A090066F8CD /* ticket_ok.mp3 in Resources */,
+				5FB7360B269C3A090066F8CD /* ticket_ng.mp3 in Resources */,
 				5F4F303426945353008FFA3D /* LaunchScreen.storyboard in Resources */,
 				5F4F303126945353008FFA3D /* Preview Assets.xcassets in Resources */,
 				5F4F302E26945353008FFA3D /* Assets.xcassets in Resources */,
@@ -145,9 +272,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F55D19A269D7CB30011B1B6 /* EmailInputView.swift in Sources */,
+				5FB7361E269C3DA20066F8CD /* SelectEventsNetWorkManager.swift in Sources */,
+				5F55D19C269D85A60011B1B6 /* PasswordInputView.swift in Sources */,
+				5FB735F4269C2DDE0066F8CD /* UserDefaultsHelpers.swift in Sources */,
+				5FB73624269C42950066F8CD /* CountVisitedNetworkManager.swift in Sources */,
+				5FB73628269C43B10066F8CD /* RootView.swift in Sources */,
+				5FB73613269C3A6B0066F8CD /* QRScannerViewController.swift in Sources */,
+				5FB735F0269C2CD20066F8CD /* User.swift in Sources */,
+				5FB73621269C3EF30066F8CD /* UpdateQRCodeNetWorkManager.swift in Sources */,
+				5FB7362F269C445F0066F8CD /* Loader.swift in Sources */,
+				5FB73635269C447C0066F8CD /* SelectEventView.swift in Sources */,
+				5F285195269EEE7600C5FC21 /* RefreshableScrollView.swift in Sources */,
 				5F4F302826945344008FFA3D /* AppDelegate.swift in Sources */,
+				5FB73617269C3AE00066F8CD /* APIURL.swift in Sources */,
+				5FB735FE269C34AF0066F8CD /* Ticket.swift in Sources */,
 				5F4F302A26945344008FFA3D /* SceneDelegate.swift in Sources */,
-				5F4F302C26945344008FFA3D /* ContentView.swift in Sources */,
+				5FB735F7269C32130066F8CD /* Sounds.swift in Sources */,
+				5FB735FB269C32F10066F8CD /* Event.swift in Sources */,
+				5FB73604269C36AC0066F8CD /* Utilities.swift in Sources */,
+				5FB73632269C446D0066F8CD /* NetworkErrorView.swift in Sources */,
+				5FB7363A269C4BB00066F8CD /* Model.xcdatamodeld in Sources */,
+				5FB7361B269C3B060066F8CD /* AuthNetWorkManager.swift in Sources */,
+				5FB7362C269C444C0066F8CD /* TopView.swift in Sources */,
+				5FB73601269C34FC0066F8CD /* CountStatus.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,12 +439,13 @@
 				DEVELOPMENT_TEAM = 2SS98SNGPG;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "QRアプリtest/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example1234.QR----test";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.example1234.QRtest;
+				PRODUCT_NAME = QRCodeTest;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -312,12 +461,13 @@
 				DEVELOPMENT_TEAM = 2SS98SNGPG;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "QRアプリtest/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example1234.QR----test";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.example1234.QRtest;
+				PRODUCT_NAME = QRCodeTest;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -345,6 +495,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		5FB73638269C4BB00066F8CD /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				5FB73639269C4BB00066F8CD /* Model.xcdatamodel */,
+			);
+			currentVersion = 5FB73639269C4BB00066F8CD /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 5F4F301C26945344008FFA3D /* Project object */;
 }
