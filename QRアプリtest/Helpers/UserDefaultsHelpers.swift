@@ -7,37 +7,34 @@
 
 import Foundation
 
-
 extension UserDefaults {
     
     enum UserDefaultsKeys: String {
-        case isAuthorized    //trueの場合イベント一覧画面/通信エラー画面/ロード画面が表示される、falseの場合、トップ画面が表示される
-        case token
+        case token               //ログインレスポンス文字列
+        case lastedCheckedDate   //前回バージョン確認日
     }
     
+    //tokenは空白：""
+    //tokenは空白以外：token
     func getToken() -> String {
         return string(forKey: UserDefaultsKeys.token.rawValue) ?? ""
     }
     
+    //token値更新
     func setToken(value: String) {
-        //値を更新
         set(value, forKey: UserDefaultsKeys.token.rawValue)
         synchronize()
     }
     
-    func setIsAuthorized(value: Bool) {
-        //値を更新
-        set(value, forKey: UserDefaultsKeys.isAuthorized.rawValue)
+    //前回バージョン確認日は空白：""
+    //前回バージョン確認日は空白以外：lastedCheckedDate
+    func getLastedCheckedDate() -> String {
+        return string(forKey: UserDefaultsKeys.lastedCheckedDate.rawValue) ?? ""
+    }
+    
+    //前回バージョン確認日値更新
+    func setLastedCheckedDate(value: String) {
+        set(value, forKey: UserDefaultsKeys.lastedCheckedDate.rawValue)
         synchronize()
-    }
-    
-    func isAuthorized() -> Bool {
-        return bool(forKey: UserDefaultsKeys.isAuthorized.rawValue)
-    }
-    
-    func logout() {
-        //値を削除
-        removeObject(forKey: UserDefaultsKeys.isAuthorized.rawValue)
-        removeObject(forKey: UserDefaultsKeys.token.rawValue)
     }
 }
