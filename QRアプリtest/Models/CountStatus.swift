@@ -15,12 +15,12 @@ struct CountStatus: Hashable, Codable, Identifiable {
     var dateId: Int                    //時間帯別イベントID
     var totalVisitedWebSaledSeat: Int  //Web購入来場者数
     var totalWebSaledSeat: Int         //Web購入数
-    var totalVisitedSeat: Int          //
-    var totalSeat: Int                 //
-    var status: Int                    //
-    var result: String                 //
-    var message: String                //
-    var error: String                  //
+    var totalVisitedSeat: Int          //来場者数
+    var totalSeat: Int                 //合計席数
+    var status: Int                    //レスポンスステータス
+    var result: String                 //レスポンス結果
+    var message: String                //レスポンスメッセージ
+    var error: String                  //レスポンスエラー
     
     enum CodingKeys: String, CodingKey {
 
