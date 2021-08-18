@@ -46,7 +46,11 @@ class AuthNetWorkManager: ObservableObject {
         }
     }
     
-    //ログイン
+    //ログイン処理
+    //ログイン失敗(クライアント通信)：self.requestStatus = .Rejected
+    //ログイン失敗(サーバー通信)：self.requestStatus = .Rejected
+    //ログイン失敗(パスワード不正)：self.requestStatus = .Idle
+    //ログイン成功：self.requestStatus = .Fulfilled
     func login(email: String, password: String) {
         self.requestStatus = .Pending
         
@@ -101,10 +105,10 @@ class AuthNetWorkManager: ObservableObject {
         }.resume()
     }
     
-    //ログアウト,UserDefaultsHelpers.swiftのログアウト処理を呼び出す。
+    //ログアウト
     func logout() {
         DispatchQueue.main.async {
-            UserDefaults.standard.logout()
+            Utilities.logout()
             self.user = User()
         }
     }

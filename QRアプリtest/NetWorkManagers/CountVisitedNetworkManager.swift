@@ -8,29 +8,37 @@
 import Foundation
 import Combine
 
-//集計情報を取得するクラス
 class CountVisitedNetworkManager: ObservableObject {
     
     var willChange = PassthroughSubject<CountVisitedNetworkManager, Never>()
     
+    //レスポンス情報
     @Published var countStatus = CountStatus() {
         willSet {
             willChange.send(self)
         }
     }
     
+    //レスポンスエラーメッセージ
     @Published var requestError: String = "" {
         willSet {
             willChange.send(self)
         }
     }
     
+    //レスポンスステータス
     @Published var requestStatus: RequestStatus = RequestStatus.Idle {
         willSet {
             willChange.send(self)
         }
     }
     
+        //入場情報取得処理
+    //APIURLが間違った場合self.requestStatus = .Rejected
+    //ログインしていない場合self.requestStatus = .Rejected
+    //入場情報取得失敗(クライアント通信)：self.requestStatus = .Rejected
+    //入場情報取得失敗(サーバー通信)：self.requestStatus = .Rejected
+    //入場情報取得成功self.requestStatus = .Fulfilled・self.countStatus = count
     func count(data: Event) {
         self.requestStatus = .Pending
         
@@ -40,10 +48,9 @@ class CountVisitedNetworkManager: ObservableObject {
             return
         }
         
-        if !UserDefaults.standard.isAuthorized() {
+        if !Utilities.isAuthorized() {
             print("ログインしていない")
-            UserDefaults.standard.setIsAuthorized(value: false)
-            UserDefaults.standard.setToken(value: "")
+            Utilities.logout()
             self.requestError = "ログインしていない"
             self.requestStatus = .Rejected
             return
@@ -51,7 +58,7 @@ class CountVisitedNetworkManager: ObservableObject {
         
         print(data.eventId)
 
-        let authString = UserDefaults.standard.getToken()
+        let authString = Utilities.getToken()
         var request = URLRequest(url: url)
         let body: [String:Any] = ["eventId": data.eventId, "dateId": data.dateId]
         let finalBody = try! JSONSerialization.data(withJSONObject: body)
@@ -107,4 +114,3 @@ class CountVisitedNetworkManager: ObservableObject {
         }.resume()
     }
 }
-

@@ -13,12 +13,17 @@ import AVFoundation
 class UpdateQRCodeNetWorkManager: ObservableObject {
     var willChange = PassthroughSubject<UpdateQRCodeNetWorkManager, Never>()
     
+        //イベント情報取得ごのデータを定義する
+        //レスポンス結果resultが"OK"の場合：soundIdRingOK
+        //レスポンス結果resultが"INFO"、self.tickets.message ="入場取消"の場合：soundIdRingOK
+        //レスポンス結果resultが"INFO"、self.tickets.message ="入場済み"の場合：soundIdRingNG
+        //レスポンス結果resultが"INFO"、self.tickets.message ="入場済み","入場取消"以外の場合：soundIdRingNG
+        //レスポンス結果resultが"NG"の場合：soundIdRingNG
     @Published var tickets: Tickets = Tickets() {
         willSet {
             willChange.send(self)
         }
         
-        //チケットメッセージによって、ボタンの文字列を変更する
         didSet {
             if (self.tickets.result == "OK") {
                 sounds.stop()
@@ -62,28 +67,30 @@ class UpdateQRCodeNetWorkManager: ObservableObject {
     
     var sounds: Sounds = Sounds()
     
-    //QRコードスキャン
+        //QRコードスキャン処理
+    //APIURLが間違った場合self.requestStatus = .Rejected
+    //ログインしていない場合self.requestStatus = .Rejected
+    //スキャン失敗(クライアント通信)：self.requestStatus = .Rejected
+    //スキャン失敗(サーバー通信)：self.requestStatus = .Rejected
+    //スキャン成功self.requestStatus = .Fulfilled・self.events = events
     func update(qrData: String = "", data: Event) {
         self.requestStatus = .Pending
         
-        //URL設定していない場合
         guard let url = URL(string: APIURL.QRCheckInUpdate) else {
             print("APIURLが存在しない")
             self.requestStatus = .Rejected
             return
         }
         
-        //オフラインの場合
-        if !UserDefaults.standard.isAuthorized() {
+        if !Utilities.isAuthorized()  {
             print("ログインしていない")
-            UserDefaults.standard.setIsAuthorized(value: false)
-            UserDefaults.standard.setToken(value: "")
+            Utilities.logout()
             self.requestError = "ログインしていない"
             self.requestStatus = .Rejected
             return
         }
         
-        let authString = UserDefaults.standard.getToken()
+        let authString = Utilities.getToken()
         var request = URLRequest(url: url)
         let deviceId = Utilities.getDeviceID()
         let body: [String:Any] = ["eventId": data.eventId, "dateId": data.dateId, "qrCode": qrData, "qrSearchFlg": 1, "page": 1, "recordDeviceNo": deviceId]
@@ -134,12 +141,19 @@ class UpdateQRCodeNetWorkManager: ObservableObject {
                         self.requestStatus = .Fulfilled
                     }
                 } catch {
+                    self.requestStatus = .Rejected
                     print(error)
                 }
             }
         }.resume()
     }
     
+    //入場取消処理
+    //APIURLが間違った場合self.requestStatus = .Rejected
+    //ログインしていない場合self.requestStatus = .Rejected
+    //入場取消失敗(クライアント通信)：self.requestStatus = .Rejected
+    //入場取消失敗(サーバー通信)：self.requestStatus = .Rejected
+    //入場取消成功self.requestStatus = .Fulfilled・self.events = events
     func delete(qrData: String = "", data: Event) {
         self.requestStatus = .Pending
         
@@ -149,14 +163,14 @@ class UpdateQRCodeNetWorkManager: ObservableObject {
             return
         }
         
-        if !UserDefaults.standard.isAuthorized() {
+        if !Utilities.isAuthorized() {
             print("ログインしていない")
             self.requestError = "ログインしていない"
             self.requestStatus = .Rejected
             return
         }
         
-        let authString = UserDefaults.standard.getToken()
+        let authString = Utilities.getToken()
         var request = URLRequest(url: url)
         let deviceId = Utilities.getDeviceID()
         let body: [String:Any] = ["eventId": data.eventId, "dateId": data.dateId, "qrCode": qrData, "qrSearchFlg": 1, "page": 1, "recordDeviceNo": deviceId]
@@ -212,7 +226,6 @@ class UpdateQRCodeNetWorkManager: ObservableObject {
         }.resume()
     }
     
-    //初期化
     func initTickets() {
         DispatchQueue.main.async {
             self.requestStatus = .Idle
@@ -220,4 +233,3 @@ class UpdateQRCodeNetWorkManager: ObservableObject {
         }
     }
 }
-

@@ -51,7 +51,12 @@ class SelectEventsNetWorkManager: ObservableObject {
        getEvents()
    }
     
-    
+    //イベント情報取得処理
+    //APIURLが間違った場合self.requestStatus = .Rejected
+    //ログインしていない場合self.requestStatus = .Rejected
+    //イベント情報取得失敗(クライアント通信)：self.requestStatus = .Rejected
+    //イベント情報取得失敗(サーバー通信)：self.requestStatus = .Rejected
+    //イベント情報取得成功self.requestStatus = .Fulfilled・self.events = events
     func getEvents() {
         self.requestStatus = .Pending
         
@@ -62,17 +67,16 @@ class SelectEventsNetWorkManager: ObservableObject {
             return
         }
         
-        if !UserDefaults.standard.isAuthorized() {
+        if !Utilities.isAuthorized() {
             print("ログインしていない")
-            UserDefaults.standard.setIsAuthorized(value: false)
-            UserDefaults.standard.setToken(value: "")
+            Utilities.logout()
             self.requestError = "ログインしていない"
             self.requestStatus = .Rejected
             self.initRefreshing()
             return
         }
         
-        let authString = UserDefaults.standard.getToken()
+        let authString = Utilities.getToken()
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -99,8 +103,7 @@ class SelectEventsNetWorkManager: ObservableObject {
                     if (response.statusCode == 205 || response.statusCode == 401) {
                         print("サーバ側システムエラー")
                         DispatchQueue.main.async {
-                            UserDefaults.standard.setIsAuthorized(value: false)
-                            UserDefaults.standard.setToken(value: "")
+                            Utilities.logout()
                             self.requestError = "認証失敗"
                             self.requestStatus = .Rejected
                             self.initRefreshing()
@@ -143,7 +146,7 @@ class SelectEventsNetWorkManager: ObservableObject {
             return
         }
         
-        if !UserDefaults.standard.isAuthorized() {
+        if !Utilities.isAuthorized() {
             print("ログインしていない")
             self.requestError = "ログインしていない"
             self.requestStatus = .Rejected
@@ -179,8 +182,7 @@ class SelectEventsNetWorkManager: ObservableObject {
                     if (response.statusCode == 205 || response.statusCode == 401) {
                         print("サーバ側システムエラー")
                         DispatchQueue.main.async {
-                            UserDefaults.standard.setIsAuthorized(value: false)
-                            UserDefaults.standard.setToken(value: "")
+                            Utilities.logout()
                             self.requestError = "認証失敗"
                             self.requestStatus = .Rejected
                             self.initRefreshing()

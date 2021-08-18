@@ -36,6 +36,7 @@
 		5FB73632269C446D0066F8CD /* NetworkErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB73631269C446D0066F8CD /* NetworkErrorView.swift */; };
 		5FB73635269C447C0066F8CD /* SelectEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB73634269C447C0066F8CD /* SelectEventView.swift */; };
 		5FB7363A269C4BB00066F8CD /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5FB73638269C4BB00066F8CD /* Model.xcdatamodeld */; };
+		5FFE111926CCBD7C007F4864 /* AppStoreInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFE111826CCBD7C007F4864 /* AppStoreInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,7 @@
 		5FB73631269C446D0066F8CD /* NetworkErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorView.swift; sourceTree = "<group>"; };
 		5FB73634269C447C0066F8CD /* SelectEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectEventView.swift; sourceTree = "<group>"; };
 		5FB73639269C4BB00066F8CD /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		5FFE111826CCBD7C007F4864 /* AppStoreInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +184,7 @@
 				5FB7361D269C3DA20066F8CD /* SelectEventsNetWorkManager.swift */,
 				5FB73620269C3EF30066F8CD /* UpdateQRCodeNetWorkManager.swift */,
 				5FB73623269C42950066F8CD /* CountVisitedNetworkManager.swift */,
+				5FFE111826CCBD7C007F4864 /* AppStoreInfo.swift */,
 			);
 			path = NetWorkManagers;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 				5FB73621269C3EF30066F8CD /* UpdateQRCodeNetWorkManager.swift in Sources */,
 				5FB7362F269C445F0066F8CD /* Loader.swift in Sources */,
 				5FB73635269C447C0066F8CD /* SelectEventView.swift in Sources */,
+				5FFE111926CCBD7C007F4864 /* AppStoreInfo.swift in Sources */,
 				5F285195269EEE7600C5FC21 /* RefreshableScrollView.swift in Sources */,
 				5F4F302826945344008FFA3D /* AppDelegate.swift in Sources */,
 				5FB73617269C3AE00066F8CD /* APIURL.swift in Sources */,
