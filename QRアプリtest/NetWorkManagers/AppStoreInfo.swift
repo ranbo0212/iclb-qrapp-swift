@@ -65,8 +65,8 @@ class AppStoreInfo: ObservableObject {
     //アプリ情報取得失敗(クライアント通信)：self.requestStatus = .Rejected
     //アプリ情報取得失敗(サーバー通信)：self.requestStatus = .Rejected
     //アプリ情報取得成功self.requestStatus = .Fulfilled
-    //OSバージョン最新：self.showAlert = true・self.alerType = .supportOsVersion
-    //OSバージョン古い・アプリバージョン古い：self.showAlert = true・self.alerType = .updateOsVersion
+    //OSバージョン古い：self.showAlert = true・self.alerType = .supportOsVersion
+    //OSバージョン最新・アプリバージョン古い：self.showAlert = true・self.alerType = .updateOsVersion
     func checkIfLatestVersion() {
         self.requestStatus = .Pending
         
