@@ -18,12 +18,44 @@ struct SelectEventView: View {
             NavigationView {
                 ZStack(alignment: .top) {
                     VStack {
-                        RefreshableScrollView()
+                        
+                        RefreshableScrollView(height: 70, refreshing: self.$selectEventsNetWorkManager.refreshing) {
+
+                            //リフレッシュ、またはデータ取得中の場合、ロード画面が表示される
+                            if self.selectEventsNetWorkManager.requestStatus == .Pending || self.selectEventsNetWorkManager.refreshing {
+                                ForEach(0 ..< 3) { number in
+                                    if #available(iOS 14.0, *) {
+                                        EventCardPlaceholder()
+                                            .redacted(reason: .placeholder)
+                                    } else {
+                                        SelectEventLoader()
+                                    }
+                                }
+                            }
+                            //データ取得完了の場合、イベント情報が表示される
+                            else {
+                                if self.selectEventsNetWorkManager.requestStatus != .Rejected {
+                                    if self.selectEventsNetWorkManager.events.count != 0 {
+                                        ForEach(self.selectEventsNetWorkManager.events, id: \.id) { event in
+                                            EventCardView(event: event)
+                                        }
+                                    } else {
+                                        VStack {
+                                            Text("本日、入場可能なイベントがありません。")
+                                                .font(.headline)
+                                                .fontWeight(.bold)
+                                                .foregroundColor(Color.gray)
+                                        }
+                                        .frame(height: UIScreen.main.bounds.height / 2, alignment: .center)
+                                    }
+                                }
+                            }
+                        }
                     }
                     
-                    //四角形を描画
+                    //右上ボタンが存在する四角View
                     Rectangle()
-//                        .fill(Color.white)
+                        .fill(Color.white)
                         .frame(width: UIScreen.main.bounds.width, height: 88, alignment: .center)
                         .offset(x: 0, y: -148)
 
@@ -57,23 +89,23 @@ struct SelectEventView: View {
                 }
             }
             //イベント取得失敗の場合、ぼかしする
-//            .blur(radius: selectEventsNetWorkManager.requestStatus == .Rejected ? 3 : 0)
+            .blur(radius: selectEventsNetWorkManager.requestStatus == .Rejected ? 3 : 0)
 //
 //
-//            if self.selectEventsNetWorkManager.requestStatus == .Rejected {
-//                //ネットワーク通信エラーの場合通信エラーViewが表示される
-//                NetworkErrorView()
-//                    //通信エラーViewの任意場所をクリックすると、ログアウトするか、イベント情報を取得する
-//                    .onTapGesture() {
-//                        if UserDefaults.standard.isAuthorized() == false {
-//                            //ネットが切れた場合、ログアウトする
-//                            self.authNetWorkManager.logout()
-//                        } else {
-//                            //ネットが繋がっている場合、イベントを再取得する
-//                            selectEventsNetWorkManager.getEvents()
-//                        }
-//                    }
-//            }
+            if self.selectEventsNetWorkManager.requestStatus == .Rejected {
+                //ネットワーク通信エラーの場合通信エラーViewが表示される
+                NetworkErrorView()
+                    //通信エラーViewの任意場所をクリックすると、ログアウトするか、イベント情報を取得する
+                    .onTapGesture() {
+                        if Utilities.isAuthorized() == false {
+                            //ネットが切れた場合、ログアウトする
+                            self.authNetWorkManager.logout()
+                        } else {
+                            //ネットが繋がっている場合、イベントを再取得する
+                            selectEventsNetWorkManager.getEvents()
+                        }
+                    }
+            }
         }
     }
 }
@@ -92,15 +124,16 @@ struct EventCardView: View {
             .repeatForever(autoreverses: false)
     }
     
-    
+    //引数：イベント情報
     let event: Event
     @State var onPressed: Bool = false
     @State var liveAnimationAmount: CGFloat = 1
     var body: some View {
         
         VStack {
-            NavigationLink(destination: TopView()
-//                            EventDetailView(event: event, onPressed: $onPressed), isActive: $onPressed
+            //クリックすると、イベント詳細画面に遷移
+            //引数：イベント情報
+            NavigationLink(destination: EventDetailView(event: event, onPressed: $onPressed), isActive: $onPressed
             ) {
                 ZStack {
                     Image(event.image)
@@ -116,6 +149,7 @@ struct EventCardView: View {
                         .frame(width: UIScreen.main.bounds.width, height: 240)
                         .clipped()
                     
+                    //・本日入場
                     ZStack {
                         if event.isToday == true {
                             Rectangle()
@@ -154,6 +188,7 @@ struct EventCardView: View {
                     .background(Color.clear)
                     
                     VStack {
+                        //イベント名
                         HStack {
                             Text(event.eventName)
                                 .font(.system(size: 18))
@@ -165,8 +200,8 @@ struct EventCardView: View {
                         .padding(.vertical, 10)
                         .background(Color.clear)
                         
-                        
                         VStack (alignment: .leading, spacing: 10) {
+                            //イベント開始日
                             HStack  {
                                 Image(systemName: "calendar")
                                     .font(Font.body.weight(.light))
@@ -179,6 +214,7 @@ struct EventCardView: View {
                             }
                             .background(Color.clear)
                             
+                            //イベント開始時間帯
                             HStack {
                                 HStack {
                                     Image(systemName: "clock")

@@ -7,17 +7,20 @@
 
 import SwiftUI
 
+//通信エラー発生した場合表示される
 struct NetworkErrorView: View {
     @State var show: Bool = false
     
     var body: some View {
         ZStack {
             Color.black.opacity(0.2)
-                .edgesIgnoringSafeArea(.all)  //背景透明度0.2
+                .edgesIgnoringSafeArea(.all)
             ZStack {
                 Color.black
-                    .edgesIgnoringSafeArea(.all)  //背景透明度0.2
+                    .edgesIgnoringSafeArea(.all)
 
+                //エラー内容
+                //システム画像wifi.exclamationmarkを使用する
                 VStack(spacing: 30) {
                     Image(systemName: "wifi.exclamationmark")
                         .font(Font.system(size: 32, weight: .regular))
@@ -48,6 +51,7 @@ struct NetworkErrorView: View {
         }
     }
 }
+
 
 struct NetworkErrorView_Previews: PreviewProvider {
     static var previews: some View {

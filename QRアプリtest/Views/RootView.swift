@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct RootView: View {
-        
-        //ログイン確認マネージャー
+
+    //ログイン確認マネージャー
     @EnvironmentObject var authNetWorkManager: AuthNetWorkManager
-        //バージョン確認マネージャー
+    //バージョン確認マネージャー
     @ObservedObject var appStoreInfo = AppStoreInfo()
     
     var body: some View {
@@ -31,7 +31,9 @@ struct RootView: View {
                             //ダイアログ表示
                             //当日バージョン確認行ってない、バージョンが古い場合ダイアログ表示
                             .alert(isPresented: Binding.constant(!Utilities.isVersionCheckedToday() && appStoreInfo.showAlert)) {
+                                //appStoreInfo.alerTypeの値によって、ダイアログ表示
                                 switch appStoreInfo.alerType {
+                                    //IOSバージョンが古い場合
                                     case .supportOsVersion:
                                         return Alert(
                                             title: Text("OSバージョン更新のお願い"),
@@ -40,6 +42,7 @@ struct RootView: View {
                                                 exit(0)
                                             }
                                         )
+                                    //IOSバージョンが最新、アプリバージョンが古い場合場合
                                     case .updateVersion:
                                         return Alert(
                                             title: Text("アプリ更新のお願い"),
@@ -57,23 +60,29 @@ struct RootView: View {
                                 }
                             }
                     }
+                    //通信エラーの場合、ぼかし程度：３　通信エラー以外の場合、ぼかしなし
                     .blur(radius: authNetWorkManager.requestStatus == .Rejected ? 3 : 0)
                 }
                 
+                //データ取得中の場合、Loader画面が表示される
                 if self.authNetWorkManager.requestStatus == .Pending {
                     VStack {
                         Loader()
                     }
+                    //セーフエリア指定、IOS14.0以降必要
                     .ignoresSafeArea(.keyboard, edges: .all)
                 }
                 
+                //データ取得中通信エラー発生の場合、NetworkErrorViewが表示される
                 if self.authNetWorkManager.requestStatus == .Rejected {
                     NetworkErrorView()
+                        //ダイアログをクリックすると、見えなくなる、インターネットが接続していない状態に変更
                         .onTapGesture() {
                             authNetWorkManager.requestStatus = .Idle
                         }
                 }
             }
+            //ログイン済みの場合、SelectEventViewが表示される
             .fullScreenCover(isPresented: Binding.constant(Utilities.isAuthorized()), content: {
                 ZStack {
                     SelectEventView()
@@ -82,6 +91,7 @@ struct RootView: View {
                                 appStoreInfo.checkIfLatestVersion()
                             }
                         }
+                        //バージョン確認
                         .alert(isPresented: Binding.constant(!Utilities.isVersionCheckedToday() && appStoreInfo.showAlert)) {
                             switch appStoreInfo.alerType {
                                 case .supportOsVersion:
@@ -117,8 +127,10 @@ struct RootView: View {
             // iOS 14.0以前の場合
             ZStack {
                 VStack {
+                    //ログイン済みの場合
                     if Utilities.isAuthorized() == true {
                         SelectEventView()
+                            //バージョン確認
                             .onAppear {
                                 if !Utilities.isVersionCheckedToday() {
                                     appStoreInfo.checkIfLatestVersion()
@@ -151,7 +163,9 @@ struct RootView: View {
                                 }
                             }
                     } else {
+                        //未ログインの場合
                         TopView()
+                            //バージョン確認
                             .onAppear {
                                 if !Utilities.isVersionCheckedToday() {
                                     appStoreInfo.checkIfLatestVersion()
@@ -184,15 +198,18 @@ struct RootView: View {
                                 }
                             }
                     }
+                    
                 }
                 .blur(radius: authNetWorkManager.requestStatus == .Rejected ? 3 : 0)
                 
+                //データ取得中の場合、Loader画面表示
                 if self.authNetWorkManager.requestStatus == .Pending {
                     VStack {
                         Loader()
                     }
                 }
                 
+                //通信エラーの場合、NetworkErrorViewが表示される
                 if self.authNetWorkManager.requestStatus == .Rejected {
                     NetworkErrorView()
                         .onTapGesture() {

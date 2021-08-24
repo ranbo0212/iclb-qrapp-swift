@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct EmailInputView: View {
+    //環境変数presentationModeを利用する
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State private var email : String = ""
     @State var isActive = false
@@ -42,6 +43,7 @@ struct EmailInputView: View {
             //左上ボタン
             leading:
             Button(action: {
+                //現在のVIewを閉じる
                 self.presentationMode.wrappedValue.dismiss()
             }) {
                 Image(systemName: "arrow.left")
@@ -61,9 +63,12 @@ struct EmailInputView: View {
                     .foregroundColor(changeButtonColor)
                 .frame(width: 44, height: 44, alignment: .trailing)
             }
-            .disabled(email.isEmpty)  // 未入力の場合非活性
+            // 未入力の場合非活性
+            .disabled(email.isEmpty)
         )
         
+        //ボタン押下したらPasswordInputViewへ遷移
+        //データ：email
         NavigationLink(destination: PasswordInputView(email: self.$email), isActive: self.$isActive) {
         }
     }

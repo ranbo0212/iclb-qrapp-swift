@@ -154,7 +154,7 @@ class SelectEventsNetWorkManager: ObservableObject {
             return
         }
         
-        let authString = UserDefaults.standard.getToken()
+        let authString = Utilities.getToken()
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")

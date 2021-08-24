@@ -51,11 +51,9 @@ class User: Codable, ObservableObject {
             if !token.isEmpty {
                 self.available = true
                 //文字列の更新
-                UserDefaults.standard.setIsAuthorized(value: true)
                 UserDefaults.standard.setToken(value: token)
             } else {
                 self.available = false
-                UserDefaults.standard.setIsAuthorized(value: false)
                 UserDefaults.standard.setToken(value: token)
             }
             print(self.available)

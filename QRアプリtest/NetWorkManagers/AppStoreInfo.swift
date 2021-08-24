@@ -125,6 +125,7 @@ class AppStoreInfo: ObservableObject {
                                     }
                                 }
                                 
+                                //アプリ更新URL
                                 if let trackViewUrl = results[0]["trackViewUrl"] as? String {
                                     print(trackViewUrl)
                                     

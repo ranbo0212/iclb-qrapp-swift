@@ -15,6 +15,10 @@
 		5F4F303426945353008FFA3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F4F303226945353008FFA3D /* LaunchScreen.storyboard */; };
 		5F55D19A269D7CB30011B1B6 /* EmailInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F55D199269D7CB30011B1B6 /* EmailInputView.swift */; };
 		5F55D19C269D85A60011B1B6 /* PasswordInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F55D19B269D85A60011B1B6 /* PasswordInputView.swift */; };
+		5F936EC226D37DC700020F44 /* EventDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F936EC126D37DC700020F44 /* EventDetailView.swift */; };
+		5F936EC426D37E4100020F44 /* QRScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F936EC326D37E4100020F44 /* QRScannerView.swift */; };
+		5F936EC626D37E7200020F44 /* TicketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F936EC526D37E7200020F44 /* TicketView.swift */; };
+		5F936EC826D37E8900020F44 /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F936EC726D37E8900020F44 /* StatusView.swift */; };
 		5FB735F0269C2CD20066F8CD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB735EF269C2CD20066F8CD /* User.swift */; };
 		5FB735F4269C2DDE0066F8CD /* UserDefaultsHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB735F3269C2DDE0066F8CD /* UserDefaultsHelpers.swift */; };
 		5FB735F7269C32130066F8CD /* Sounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB735F6269C32130066F8CD /* Sounds.swift */; };
@@ -37,6 +41,10 @@
 		5FB73635269C447C0066F8CD /* SelectEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB73634269C447C0066F8CD /* SelectEventView.swift */; };
 		5FB7363A269C4BB00066F8CD /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5FB73638269C4BB00066F8CD /* Model.xcdatamodeld */; };
 		5FFE111926CCBD7C007F4864 /* AppStoreInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFE111826CCBD7C007F4864 /* AppStoreInfo.swift */; };
+		5FFE111B26CD130B007F4864 /* TicketLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFE111A26CD130B007F4864 /* TicketLoader.swift */; };
+		5FFE111D26CD139C007F4864 /* PullDownLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFE111C26CD139C007F4864 /* PullDownLoader.swift */; };
+		5FFE111F26CD160F007F4864 /* SelectEventLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFE111E26CD160F007F4864 /* SelectEventLoader.swift */; };
+		5FFE112126CD17A1007F4864 /* EventCardPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFE112026CD17A0007F4864 /* EventCardPlaceholder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +58,10 @@
 		5F4F303526945353008FFA3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5F55D199269D7CB30011B1B6 /* EmailInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailInputView.swift; sourceTree = "<group>"; };
 		5F55D19B269D85A60011B1B6 /* PasswordInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordInputView.swift; sourceTree = "<group>"; };
+		5F936EC126D37DC700020F44 /* EventDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailView.swift; sourceTree = "<group>"; };
+		5F936EC326D37E4100020F44 /* QRScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerView.swift; sourceTree = "<group>"; };
+		5F936EC526D37E7200020F44 /* TicketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketView.swift; sourceTree = "<group>"; };
+		5F936EC726D37E8900020F44 /* StatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
 		5FB735EF269C2CD20066F8CD /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		5FB735F3269C2DDE0066F8CD /* UserDefaultsHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelpers.swift; sourceTree = "<group>"; };
 		5FB735F6269C32130066F8CD /* Sounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sounds.swift; sourceTree = "<group>"; };
@@ -72,6 +84,10 @@
 		5FB73634269C447C0066F8CD /* SelectEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectEventView.swift; sourceTree = "<group>"; };
 		5FB73639269C4BB00066F8CD /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		5FFE111826CCBD7C007F4864 /* AppStoreInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreInfo.swift; sourceTree = "<group>"; };
+		5FFE111A26CD130B007F4864 /* TicketLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketLoader.swift; sourceTree = "<group>"; };
+		5FFE111C26CD139C007F4864 /* PullDownLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullDownLoader.swift; sourceTree = "<group>"; };
+		5FFE111E26CD160F007F4864 /* SelectEventLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectEventLoader.swift; sourceTree = "<group>"; };
+		5FFE112026CD17A0007F4864 /* EventCardPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCardPlaceholder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +150,10 @@
 			children = (
 				5FB7362E269C445F0066F8CD /* Loader.swift */,
 				5FB73631269C446D0066F8CD /* NetworkErrorView.swift */,
+				5FFE111A26CD130B007F4864 /* TicketLoader.swift */,
+				5FFE111C26CD139C007F4864 /* PullDownLoader.swift */,
+				5FFE111E26CD160F007F4864 /* SelectEventLoader.swift */,
+				5FFE112026CD17A0007F4864 /* EventCardPlaceholder.swift */,
 			);
 			path = CommonViews;
 			sourceTree = "<group>";
@@ -199,6 +219,10 @@
 				5F55D19B269D85A60011B1B6 /* PasswordInputView.swift */,
 				5FB73634269C447C0066F8CD /* SelectEventView.swift */,
 				5F285194269EEE7600C5FC21 /* RefreshableScrollView.swift */,
+				5F936EC126D37DC700020F44 /* EventDetailView.swift */,
+				5F936EC326D37E4100020F44 /* QRScannerView.swift */,
+				5F936EC526D37E7200020F44 /* TicketView.swift */,
+				5F936EC726D37E8900020F44 /* StatusView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -277,29 +301,37 @@
 			files = (
 				5F55D19A269D7CB30011B1B6 /* EmailInputView.swift in Sources */,
 				5FB7361E269C3DA20066F8CD /* SelectEventsNetWorkManager.swift in Sources */,
+				5F936EC826D37E8900020F44 /* StatusView.swift in Sources */,
 				5F55D19C269D85A60011B1B6 /* PasswordInputView.swift in Sources */,
 				5FB735F4269C2DDE0066F8CD /* UserDefaultsHelpers.swift in Sources */,
+				5F936EC426D37E4100020F44 /* QRScannerView.swift in Sources */,
 				5FB73624269C42950066F8CD /* CountVisitedNetworkManager.swift in Sources */,
 				5FB73628269C43B10066F8CD /* RootView.swift in Sources */,
 				5FB73613269C3A6B0066F8CD /* QRScannerViewController.swift in Sources */,
 				5FB735F0269C2CD20066F8CD /* User.swift in Sources */,
+				5FFE111B26CD130B007F4864 /* TicketLoader.swift in Sources */,
+				5F936EC626D37E7200020F44 /* TicketView.swift in Sources */,
 				5FB73621269C3EF30066F8CD /* UpdateQRCodeNetWorkManager.swift in Sources */,
 				5FB7362F269C445F0066F8CD /* Loader.swift in Sources */,
 				5FB73635269C447C0066F8CD /* SelectEventView.swift in Sources */,
 				5FFE111926CCBD7C007F4864 /* AppStoreInfo.swift in Sources */,
 				5F285195269EEE7600C5FC21 /* RefreshableScrollView.swift in Sources */,
 				5F4F302826945344008FFA3D /* AppDelegate.swift in Sources */,
+				5FFE111F26CD160F007F4864 /* SelectEventLoader.swift in Sources */,
 				5FB73617269C3AE00066F8CD /* APIURL.swift in Sources */,
 				5FB735FE269C34AF0066F8CD /* Ticket.swift in Sources */,
 				5F4F302A26945344008FFA3D /* SceneDelegate.swift in Sources */,
 				5FB735F7269C32130066F8CD /* Sounds.swift in Sources */,
+				5FFE112126CD17A1007F4864 /* EventCardPlaceholder.swift in Sources */,
 				5FB735FB269C32F10066F8CD /* Event.swift in Sources */,
 				5FB73604269C36AC0066F8CD /* Utilities.swift in Sources */,
 				5FB73632269C446D0066F8CD /* NetworkErrorView.swift in Sources */,
 				5FB7363A269C4BB00066F8CD /* Model.xcdatamodeld in Sources */,
 				5FB7361B269C3B060066F8CD /* AuthNetWorkManager.swift in Sources */,
+				5F936EC226D37DC700020F44 /* EventDetailView.swift in Sources */,
 				5FB7362C269C444C0066F8CD /* TopView.swift in Sources */,
 				5FB73601269C34FC0066F8CD /* CountStatus.swift in Sources */,
+				5FFE111D26CD139C007F4864 /* PullDownLoader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

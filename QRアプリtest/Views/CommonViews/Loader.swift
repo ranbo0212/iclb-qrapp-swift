@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+//データ取得中の場合表示される
 struct Loader: View {
     
     var diameter: CGFloat = 80
@@ -19,38 +20,46 @@ struct Loader: View {
     }
     
     var body: some View {
+        
         ZStack {
-            Color.black.opacity(0.2).edgesIgnoringSafeArea(.all)  //背景の透明度を0.2にする
+                        //背景の透明度を0.2にする
+            Color.black.opacity(0.2)
+                .edgesIgnoringSafeArea(.all)
             ZStack {
-                Color.black.edgesIgnoringSafeArea(.all)   //背景の透明度をを１にする
-                
+                                //背景の透明度をを１にする
+                Color.black
+                    .edgesIgnoringSafeArea(.all)
+
                 //通信中の丸を描く
                 Circle()
-                    .trim(from: 0, to: 1) // 全円
+                                        // 全円
+                    .trim(from: 0, to: 1)
                     .stroke(Color.white, style: StrokeStyle(
                         lineWidth: 12,
                         lineCap: .round
-                    ))    // スタイルを定義する
+                    ))
                     .frame(width: diameter, height: diameter, alignment: .center)
                     .opacity(0.2)
                     
                     .overlay(
                         Circle()
-                            .trim(from: 0, to: 1 / 5)  //1/5円
+                                                        // 1／5円
+                            .trim(from: 0, to: 1 / 5)
                             .stroke(
                                 LinearGradient(gradient: Gradient(colors: [ .black, Color("overlayShadow"), .white, .white]),
                                                startPoint: .topLeading, endPoint: .bottomTrailing)
                                 , style: StrokeStyle(
                                     lineWidth: 12,
                                     lineCap: .round
-                            ))  // スタイル定義
+                            ))
                             .frame(width: diameter, height: diameter, alignment: .center)
                             .rotationEffect(.degrees(isAnimating ? 360 : 0), anchor: .center)
                             .rotation3DEffect(.degrees(0), axis: (x: 1, y: 0, z: 0))
-                            .animation(foreverAnimation) //永遠に動く
+                            ////永遠に動く
+                                                        .animation(foreverAnimation)
                             .onAppear {
                                 self.isAnimating.toggle()
-                        }  //表示する条件
+                        }
                 )
             }
             .cornerRadius(8)
